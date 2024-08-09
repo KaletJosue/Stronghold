@@ -67,10 +67,17 @@ login.addEventListener('click',(e)=>{
                     var rol = docSnap.data().Rol
                   }
                   if(rol == "Administrador"){
+<<<<<<< HEAD
                     location.href = "/Views/inside/index.html"
                   }
                   if(rol == "Gerente" || rol == "Secretario"){
                     location.href = "/Views/inside_user/index.html"
+=======
+                    location.href = " /Views/inside/index.html"
+                  }
+                  if(rol == "Gerente" || rol == "Secretario"){
+                    location.href = " /Views/inside_user/index.html"
+>>>>>>> 06b5801a7de690643ff181d15b305a81f2913941
                   }
                 })
               })
@@ -180,10 +187,17 @@ window.addEventListener("keydown", (e)=>{
                     var rol = docSnap.data().Rol
                   }
                   if(rol == "Administrador"){
+<<<<<<< HEAD
                     location.href = "/Views/inside/index.html"
                   }
                   if(rol == "Gerente" || rol == "Secretario"){
                     location.href = "/Views/inside_user/index.html"
+=======
+                    location.href = " /Views/inside/index.html"
+                  }
+                  if(rol == "Gerente" || rol == "Secretario"){
+                    location.href = " /Views/inside_user/index.html"
+>>>>>>> 06b5801a7de690643ff181d15b305a81f2913941
                   }
                 })
               })
