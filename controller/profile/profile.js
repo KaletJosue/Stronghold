@@ -9,13 +9,13 @@ import { getAuth, onAuthStateChanged, deleteUser } from "https://www.gstatic.com
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC-IRi9zarpBp-mH0royd10OyJqrp3NP6M",
-  authDomain: "stronghold-72de7.firebaseapp.com",
-  projectId: "stronghold-72de7",
-  storageBucket: "stronghold-72de7.appspot.com",
-  messagingSenderId: "516790054055",
-  appId: "1:516790054055:web:48001db4715f91c3e5bf82",
-  measurementId: "G-2C096S75GS"
+  apiKey: "AIzaSyChywa2n_aLvEAVnL0eELGtK4NlJc3yOr8",
+  authDomain: "strongholdcol.firebaseapp.com",
+  projectId: "strongholdcol",
+  storageBucket: "strongholdcol.appspot.com",
+  messagingSenderId: "974686217896",
+  appId: "1:974686217896:web:d6f39aea56f7719bc6c49d",
+  measurementId: "G-ZTJHMT75VJ"
 };
 
 // Initialize Firebase
@@ -81,7 +81,7 @@ onAuthStateChanged(auth, (user) => {
       deleteUser(user).then(() => {
         // User deleted.
 
-        location.href = "/Stronghold/Views/login/index.html"
+        location.href = "/Views/login/index.html"
 
       }).catch((error) => {
         // An error ocurred

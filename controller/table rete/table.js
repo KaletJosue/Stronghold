@@ -10,13 +10,13 @@ import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/fi
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC-IRi9zarpBp-mH0royd10OyJqrp3NP6M",
-  authDomain: "stronghold-72de7.firebaseapp.com",
-  projectId: "stronghold-72de7",
-  storageBucket: "stronghold-72de7.appspot.com",
-  messagingSenderId: "516790054055",
-  appId: "1:516790054055:web:48001db4715f91c3e5bf82",
-  measurementId: "G-2C096S75GS"
+  apiKey: "AIzaSyChywa2n_aLvEAVnL0eELGtK4NlJc3yOr8",
+  authDomain: "strongholdcol.firebaseapp.com",
+  projectId: "strongholdcol",
+  storageBucket: "strongholdcol.appspot.com",
+  messagingSenderId: "974686217896",
+  appId: "1:974686217896:web:d6f39aea56f7719bc6c49d",
+  measurementId: "G-ZTJHMT75VJ"
 };
 
 // Initialize Firebase
@@ -130,19 +130,19 @@ onAuthStateChanged(auth, (user) => {
             td5.textContent = "x"
           }
 
-          if(doc.data().Disposicion == "Conservacion total"){
+          if (doc.data().Disposicion == "Conservacion total") {
             td6.textContent = "x"
           }
 
-          else if(doc.data().Disposicion == "Eliminacion"){
+          else if (doc.data().Disposicion == "Eliminacion") {
             td7.textContent = "x"
           }
 
-          if(doc.data().Disposicion == "Microsegmentacion"){
+          if (doc.data().Disposicion == "Microsegmentacion") {
             td8.textContent = "x"
           }
 
-          if(doc.data().Disposicion == "Seleccion"){
+          if (doc.data().Disposicion == "Seleccion") {
             td9.textContent = "x"
           }
 
@@ -324,7 +324,7 @@ btn__out.addEventListener('click', (e) => {
   tryAgain3.addEventListener('click', (e) => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      location.href = "/Stronghold/Views/login/index.html"
+      location.href = "/Views/login/index.html"
 
     }).catch((error) => {
       // An error happened.
@@ -333,7 +333,7 @@ btn__out.addEventListener('click', (e) => {
   window.addEventListener("keydown", (e) => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      location.href = "/Stronghold/Views/login/index.html"
+      location.href = "/Views/login/index.html"
 
     }).catch((error) => {
       // An error happened.
@@ -391,39 +391,39 @@ okBtn7.addEventListener('click', (e) => {
         }
       }).then(() => {
 
-        
+
 
         getDocs(collection(db, "Entity", "idEntity", "Data_Documents")).
-        then((querySnapshot) =>{
-          querySnapshot.forEach((doc2) =>{
+          then((querySnapshot) => {
+            querySnapshot.forEach((doc2) => {
 
-            if(codigo == doc2.data().Codigo){
+              if (codigo == doc2.data().Codigo) {
 
-              var codigo2 = document.getElementById("codigo2").value = doc2.data().Codigo
-              var asunto = document.getElementById("asunto").value = doc2.data().Asunto
-              var dire = document.getElementById("type").value = doc2.data().Direccion
-              var dis = document.getElementById("disposicion")
-              var proce = document.getElementById("procedimientos")
+                var codigo2 = document.getElementById("codigo2").value = doc2.data().Codigo
+                var asunto = document.getElementById("asunto").value = doc2.data().Asunto
+                var dire = document.getElementById("type").value = doc2.data().Direccion
+                var dis = document.getElementById("disposicion")
+                var proce = document.getElementById("procedimientos")
 
-              if(doc2.data().Disposicion == ""){
-                dis.value = "0"
+                if (doc2.data().Disposicion == "") {
+                  dis.value = "0"
+                }
+                else {
+                  dis.value = doc2.data().Disposicion
+                }
+
+                if (doc2.data().Procedimiento == "") {
+                  proce.value = ""
+                }
+                else {
+                  proce.value = doc2.data().Procedimiento
+                }
+
+
+
               }
-              else{
-                dis.value = doc2.data().Disposicion
-              }
-
-              if(doc2.data().Procedimiento == ""){
-                proce.value = ""
-              }
-              else{
-                proce.value = doc2.data().Procedimiento
-              }
-              
-
-              
-            }
+            })
           })
-        })
 
       })
 
@@ -447,7 +447,7 @@ okBtn7.addEventListener('click', (e) => {
 })
 
 
-okBtn21.addEventListener('click', (e) =>{
+okBtn21.addEventListener('click', (e) => {
 
 
   var codigo2 = document.getElementById("codigo2").value
@@ -457,34 +457,34 @@ okBtn21.addEventListener('click', (e) =>{
   var proce = document.getElementById("procedimientos").value
 
 
-  if(codigo2.length != 0){
-    if(asunto != 0){
-      if(dire != 0){
-        if(dis != 0){
-          if(proce.length != 0){
-            if(proce.length < 370){
+  if (codigo2.length != 0) {
+    if (asunto != 0) {
+      if (dire != 0) {
+        if (dis != 0) {
+          if (proce.length != 0) {
+            if (proce.length < 370) {
               getDocs(collection(db, "Entity", "idEntity", "Data_Documents")).
-              then((querySnapshot) =>{
-                querySnapshot.forEach((doc2) =>{
-                  if(doc2.data().Codigo == codigo2){
-                    updateDoc(doc(db, "Entity", "idEntity", "Data_Documents", doc2.id),{
-                      Asunto: asunto,
-                      Codigo: codigo2,
-                      Direccion: dire,
-                      Disposicion: dis,
-                      Procedimiento:proce,
-                    })
-                  }
+                then((querySnapshot) => {
+                  querySnapshot.forEach((doc2) => {
+                    if (doc2.data().Codigo == codigo2) {
+                      updateDoc(doc(db, "Entity", "idEntity", "Data_Documents", doc2.id), {
+                        Asunto: asunto,
+                        Codigo: codigo2,
+                        Direccion: dire,
+                        Disposicion: dis,
+                        Procedimiento: proce,
+                      })
+                    }
+                  })
+
+                  loading.classList.add('active')
+                  setTimeout(function () {
+                    location.reload();
+                  }, 2000);
+
                 })
-  
-                loading.classList.add('active')
-                setTimeout(function () {
-                  location.reload();
-                }, 2000);
-  
-              })
             }
-            else{
+            else {
               modal35.classList.add('active')
               closeBtn135.addEventListener('click', () => {
                 modal35.classList.remove('active')
@@ -499,7 +499,7 @@ okBtn21.addEventListener('click', (e) =>{
               })
             }
           }
-          else{
+          else {
             modal33.classList.add('active')
             closeBtn133.addEventListener('click', () => {
               modal33.classList.remove('active')
@@ -514,7 +514,7 @@ okBtn21.addEventListener('click', (e) =>{
             })
           }
         }
-        else{
+        else {
           modal34.classList.add('active')
           closeBtn134.addEventListener('click', () => {
             modal34.classList.remove('active')
@@ -529,7 +529,7 @@ okBtn21.addEventListener('click', (e) =>{
           })
         }
       }
-      else{
+      else {
         modal14.classList.add('active')
         closeBtn14.addEventListener('click', () => {
           modal14.classList.remove('active')
@@ -544,7 +544,7 @@ okBtn21.addEventListener('click', (e) =>{
         })
       }
     }
-    else{
+    else {
       modal32.classList.add('active')
       closeBtn132.addEventListener('click', () => {
         modal32.classList.remove('active')
@@ -559,7 +559,7 @@ okBtn21.addEventListener('click', (e) =>{
       })
     }
   }
-  else{
+  else {
     alert("No has llenado el campo de codigo")
   }
 
