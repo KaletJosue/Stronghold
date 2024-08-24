@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra Usuarios</title>
+    <link rel="stylesheet" href="/styles/admin/register_user/register_user.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/460146b1b8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/assets/Logo.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Registra nuevos usuarios</h1>
+        <p>Ingresa las credenciales de tu empleado: </p>
+        <div class="container_name">
+            <input type="text" id="name" placeholder="Nombre completo" class="email" autocomplete="off">
+            <i class="fa-solid fa-user fa-bounce"></i>
+        </div>
+        <div class="container_email">
+            <input type="email" id="email" placeholder="Correo del usuario" class="email" autocomplete="off">
+            <i class="fa-solid fa-user fa-bounce"></i>
+        </div>
+        <div class="container_pasw">
+            <div class="container_eye">
+                <i class="fa-solid fa-eye" id="eye"></i>
+                <span class="line_eye"></span>
+            </div>
+            <input type="password" id="contra" placeholder="Contraseña" class="contra" autocomplete="off">
+            <i class="fa-solid fa-lock fa-shake"></i>
+        </div>
+        <div class="container-confir_pasw">
+            <div class="container_eye">
+                <i class="fa-solid fa-eye" id="eye"></i>
+                <span class="line_eye"></span>
+            </div>
+            <input type="password" id="confir_contra" placeholder="Confirmar Contraseña" class="contra" autocomplete="off">
+            <i class="fa-solid fa-lock fa-shake"></i>
+        </div>
+        <div class="container_rol">
+            <div class="select-menu">
+                <div class="select-btn">
+                    <span class="sBtn-text">Selecciona un asunto</span>
+                    <i class="ph ph-caret-down"></i>
+                </div>
+                <ul class="options">
+                    <div class="conoptions">
+                        <li class="option"><span class="option-text">Invitacion</span></li>
+                        <li class="option"><span class="option-text">Peticion</span></li>
+                        <li class="option"><span class="option-text">Queja</span></li>
+                        <li class="option"><span class="option-text">Solicitud</span></li>
+                        <li class="option"><span class="option-text">Reclamo</span></li>
+                    </div>
+                </ul>
+            </div>
+            <i class="fa-solid fa-lock fa-shake"></i>
+        </div>
+        <button id="register">Registrar</button>
+    </div>
+
+    <script type="module" src="/controller/admin/register_user/register_user.js"></script>
+</body>
+
+</html>

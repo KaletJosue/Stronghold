@@ -148,13 +148,13 @@
         </div>
 
         <div class="contentmain">
-            <div class="target">
+            <div class="target" id="up_document">
                 <img src="/assets/img_up_document.svg" alt="">
                 <h1>Subir Documento</h1>
                 <p>En este apartado podrás subir los documentos de tu empresa de manera sencilla y rápida, asegurando
                     que toda la información importante esté almacenada de forma segura y accesible.</p>
             </div>
-            <div class="target">
+            <div class="target" id="register">
                 <img src="/assets/img_register.svg" alt="">
                 <h1>Registrar Usuarios</h1>
                 <p>Aquí encontrarás un espacio dedicado a la administración completa de tu equipo. Independientemente de
@@ -187,6 +187,79 @@
         </div>
     </div>
 
+    <div class="modal_document">
+        <div class="modal_document-content">
+            <span class="closeIcon2_document"><i class="fas fa-times"></i></span>
+            <div class="modal_document-body">
+                <div class="div-modal_document">
+                    <div class="con-label">
+                        <label class="custum-file-upload" for="file">
+                            <div class="icon">
+                                <img src="/assets/img_up_document_inside.svg" alt="">
+                            </div>
+                            <div class="text">
+                                <span>Click para subir el documento</span>
+                            </div>
+                            <input type="file" id="file">
+                        </label>
+                    </div>
+                    <div class="inputs-modal">
+                        <input type="text" placeholder="Nombre del archivo" id="name_file" autocomplete="off">
+                        <input type="text" placeholder="Codigo del archivo" id="code_file" autocomplete="off">
+                        <div class="select-menu">
+                            <div class="select-btn">
+                                <span class="sBtn-text">Selecciona un asunto</span>
+                                <i class="ph ph-caret-down"></i>
+                            </div>
+                            <ul class="options">
+                                <div class="conoptions">
+                                    <li class="option"><span class="option-text">Invitacion</span></li>
+                                    <li class="option"><span class="option-text">Peticion</span></li>
+                                    <li class="option"><span class="option-text">Queja</span></li>
+                                    <li class="option"><span class="option-text">Solicitud</span></li>
+                                    <li class="option"><span class="option-text">Reclamo</span></li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="select-menu2">
+                            <div class="select-btn2">
+                                <span class="sBtn-text2">Selecciona una disposición</span>
+                                <i class="ph ph-caret-down"></i>
+                            </div>
+                            <ul class="options2">
+                                <div class="conoptions2">
+                                    <li class="option2"><span class="option-text2">Archivo de Gestion</span></li>
+                                    <li class="option2"><span class="option-text2">Archivo Central</span></li>
+                                    <li class="option2"><span class="option-text2">Archivo Historico</span></li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="select-menu3">
+                            <div class="select-btn3">
+                                <span class="sBtn-text3">Selecciona una visualizacion</span>
+                                <i class="ph ph-caret-down"></i>
+                            </div>
+                            <ul class="options3">
+                                <div class="conoptions3">
+                                    <li class="option3"><span class="option-text3">Gerente</span></li>
+                                    <li class="option3"><span class="option-text3">Secretario</span></li>
+                                    <li class="option3"><span class="option-text3">Usuario</span></li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="div_bottom">
+                    <p>Archivo seleccionado: <span class="name_files"></span></p>
+                    <div class="btns-div-bottom">
+                        <button class="closeBtn-document">Cerrar</button>
+                        <button id="btnadd-document">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal">
         <div class="modal-content">
             <div class="modal-body">
@@ -213,6 +286,39 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items3">
+                    <h1>Oooooooops!</h1>
+                    <p class="textModal3"></p>
+                    <button id="okBtn3">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal4">
+        <div class="modal-content4">
+            <span class="closeIcon4"><i class="fas fa-times"></i></span>
+            <div class="modal-body4">
+                <span class="icon4"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items4">
+                    <h1>Hecho!</h1>
+                    <p class="textModal4"></p>
+                    <button id="okBtn4">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading">
+        <div class="loader"></div>
+        <p class="textLoader">asdasdasd</p>
     </div>
 
     <script src="/controller/admin/inside/inside.js" type="module"></script>

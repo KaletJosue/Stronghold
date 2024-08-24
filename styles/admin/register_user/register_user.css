@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray-white: #f6f6f6;
+    --color-gray: #757575;
+
+    --color-fondo: #e8e8e8;
+
+    --color-blue: #5cbaef;
+
+    --box-shadow: 1px 1px 2rem #00000039;
+    --box-shadow-suave: 1px 1px 2rem #00000012;
+    --box-shadow-fuerte: 1px 1px 1rem #000000;
+}
+
+.dark-mode {
+    --color-white: #000000;
+    --color-black: #ffffff;
+    --color-gray-white: #232222;
+    --color-gray: #a7a7a7;
+
+    --color-fondo: #373737;
+
+    --color-blue: #376dbe;
+
+    --box-shadow: 1px 1px 2rem #ffffff21;
+    --box-shadow-suave: 1px 1px 2rem #ffffff12;
+    --box-shadow-fuerte: 1px 1px 1rem #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    list-style: none;
+    text-decoration: none;
+}
+
+.container_name,
+.container_email,
+.container_pasw,
+.container-confir_pasw,
+.container_rol {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: var(--color-gray-white);
+    color: var(--color-black);
+    padding: 0 0 0 2rem;
+    gap: 1rem;
+    border-radius: 5px;
+    margin-bottom: .5rem;
+}
+
+.container_pasw,
+.container-confir_pasw {
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+
+.container_name input,
+.container_email input,
+.container_pasw input,
+.container-confir_pasw input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding: 1rem 0;
+    border: 5px;
+    font-weight: 500;
+}
+
+.container_eye {
+    position: relative;
+    cursor: pointer;
+}
+
+.container_eye span {
+    display: block;
+    position: absolute;
+    width: 120%;
+    height: 1.5px;
+    background: #17181c;
+    top: 8px;
+    left: -2px;
+    transform: rotate(35deg);
+    transition: all .2s ease;
+}
+
+.container_eye span.active {
+    top: 0;
+    width: 1%;
+    background: white;
+}
+
+.select-menu {
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.select-menu .select-btn {
+    display: flex;
+    padding: 1rem 0;
+    font-size: 14px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 1rem;
+}
+
+.select-menu .select-btn i {
+    font-size: 13px;
+    transition: all .2s ease;
+}
+
+.select-menu .options {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    margin-top: .5rem;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--color-gray-white);
+    z-index: 1;
+}
+
+.select-menu.active .options {
+    display: none;
+}
+
+.select-menu.active .select-btn i {
+    transform: rotate(-180deg);
+}
+
+.select-menu .options .option {
+    padding: .7rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all .2s ease;
+}
+
+.select-menu .options .option:hover {
+    background-color: var(--color-blue);
+    color: white;
+}
+
+@media only screen and (orientation: portrait) {
+    .select-menu .options {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #3c3c3ca1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    .select-menu .options .conoptions {
+        background-color: var(--color-white);
+        border-radius: 10px;
+        width: 50vw;
+        padding: 1rem 2rem;
+    }
+
+    .select-menu .options .conoptions li {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .select-menu .options .conoptions li:hover {
+        background-color: var(--color-blue);
+    }
+}
+
+@media (width < 800px) {
+    .div-modal_document .select-menu .options .conoptions {
+        background-color: var(--color-white);
+        border-radius: 10px;
+        width: 80vw;
+        padding: 1rem 2rem;
+    }
+}
