@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="/styles/login/login.css">
+    <script src="https://kit.fontawesome.com/460146b1b8.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="shortcut icon" href="/assets/Logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container-box">
+
+        <a href="/index.html" class="back_arrow">
+            <i class="ph-fill ph-arrow-circle-left"></i>
+        </a>
+
+        <div class="box">
+
+            <h1 class="text__sta-se">Inicia sesión en tu cuenta</h1>
+            <p>¡Bienvenido de vuelta! Inicia sesión con tus credenciales:</p>
+            <div class="container_email">
+                <input type="email" id="email" placeholder="Correo del usuario" class="email" autocomplete="off">
+                <i class="fa-solid fa-user fa-bounce"></i>
+            </div>
+            <div class="container_pasw">
+                <div class="container_eye">
+                    <i class="fa-solid fa-eye" id="eye"></i>
+                    <span class="line_eye"></span>
+                </div>
+                <input type="password" id="contra" placeholder="Contraseña" class="contra" autocomplete="off">
+                <i class="fa-solid fa-lock fa-shake"></i>
+            </div>
+            <a href="/views/password/index.html" class="forgot">¿Olvidaste tu contraseña?</a>
+            <button id="login" class="btn__login">Iniciar sesión</button>
+
+        </div>
+        <div class="swiper box_imgs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide boximg">
+                    <img src="/assets/logoblanco2.png" alt="">
+                    <h1>STRONGHOLD</h1>
+                    <p>Stronghold ofrece soluciones de gestión documental que ayudan a las empresas a digitalizar,
+                        organizar y proteger sus documentos, mejorando la productividad y garantizando la seguridad de
+                        la información.</p>
+                </div>
+                <div class="swiper-slide boximg">
+                    <img src="/assets/img__start3.svg" alt="">
+                    <h1>REPUTACIÓN</h1>
+                    <p>La reputación de tu negocio puede verse gravemente afectada y los datos a los que queda expuesto
+                        pueden volverse vulnerables ante posibles brechas de seguridad, lo que compromete la integridad
+                        y confianza en la empresa.</p>
+                </div>
+                <div class="swiper-slide boximg">
+                    <img src="/assets/img__start6.svg" alt="">
+                    <h1>INGRESOS</h1>
+                    <p>La pérdida significativa de ingresos debido a una violación de seguridad es un problema común que
+                        afecta a muchas empresas, ya que los incidentes de seguridad pueden interrumpir las operaciones
+                        y dañar la estabilidad financiera.</p>
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="closeIcon"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Ooooooops!</h1>
+                    <p>Correo o contraseña incorrectos, intenta de nuevo</p>
+                    <button id="okBtn">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal2">
+        <div class="modal-content2">
+            <span class="closeIcon2"><i class="fas fa-times"></i></span>
+            <div class="modal-body2">
+                <span class="icon2"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items2">
+                    <h1>Lo sentimos</h1>
+                    <p>Antes de iniciar sesión debes llenar todos los datos</p>
+                    <button id="okBtn2">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items3">
+                    <h1>Lo sentimos</h1>
+                    <p>No hemos verificado tu email, revisa tu correo</p>
+                    <button id="okBtn3">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="/controller/login/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de rol</title>
+    <link rel="stylesheet" href="/Views/number/number.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+    </style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
+    </style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="shortcut icon" href="/Assets/Logo.svg" type="image/x-icon">
+        <script src="https://kit.fontawesome.com/460146b1b8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+       
+    <div class="box">
+        <h1>Cambio de Rol</h1>
+        <div class="box__contra">
+            <div class="rol">
+                <i class="fa-solid fa-masks-theater fa-flip"></i>
+                <select name="" id="roll">
+                    <option value="0">Seleccione un rol</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Secretario">Secrtario/a</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="login2" class="btn__cam-con">Guardar</button>
+
+        <p class="box__r">------ Redes sociales ------</p>
+
+        <div class="social">
+            <div class="social__icon">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="insta">
+                <div class="social__icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="twi">
+                <div class="social__icon">
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div class="what">
+                <div class="social__icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+
+        <img src="/Assets/img__pro-pass3.svg" alt="" class="img__pro-pass2">
+
+        <a href="/Views/inside_user/index.html" class="a__arrow">
+            <i class="fa-solid fa-circle-arrow-left" id="arrow"></i>
+        </a>
+
+    </div>
+
+
+    <div class="modal2">
+        <div class="modal-content2">
+            <span class="closeIcon2"><i class="fas fa-times"></i></span>
+            <div class="modal-body2">
+            <span class="icon2"><i class="fa-solid fa-circle-info"></i></span>
+            <div class="right-items2">
+                <h1 class="h1__modal2">Lo sentimos</h1>
+                <p class="text_error2">Antes de cambiar tu numero de telefono debes llenar todos los datos</p>
+                <button id="okBtn2">Intentalo otra vez</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal5">
+        <div class="modal-content5">
+            <div class="modal-body5">
+            <span class="icon5"><i class="fas fa-exclamation-triangle"></i></span>
+            <div class="right-items5">
+                <h1 class="h1__modal5">Ooooooooooooooooops !!!</h1>
+                <p class="text_error5">No has iniciado sesion, te redirigiremos al login para que puedas ingresar de manera correcta</p>
+                <form action="/Views/login/index.html"><button id="okBtn5">Iniciar sesion</button></form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+            <span class="icon3"><i class="fa-solid fa-circle-info"></i></span>
+            <div class="right-items3">
+                <h1 class="h1__modal3">Felicidades</h1>
+                <p class="text_error3">Ya cambiamos tu rol</p>
+                <button id="okBtn3">Volver a STRONGHOLD</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="/controller/number/number.js"  type="module" ></script>
+
+</body>
+</html>

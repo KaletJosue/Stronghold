@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de contraseña</title>
+    <link rel="stylesheet" href="/styles/password/password.css">
+    <script src="https://kit.fontawesome.com/460146b1b8.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="shortcut icon" href="/assets/Logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container-box">
+
+        <a href="/index.html" class="back_arrow">
+            <i class="ph-fill ph-arrow-circle-left"></i>
+        </a>
+
+        <div class="swiper box_imgs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide boximg">
+                    <img src="/assets/password.svg" alt="">
+                    <h1>LEGALIDAD</h1>
+                    <p>Stronghold ofrece soluciones de gestión documental que ayudan a las empresas a digitalizar,
+                        organizar y proteger sus documentos, mejorando la productividad y garantizando la seguridad de
+                        la información.</p>
+                </div>
+                <div class="swiper-slide boximg">
+                    <img src="/assets/password2.svg" alt="">
+                    <h1>EFICIENCIA</h1>
+                    <p>Utilizar Stronghold permite automatizar la gestión documental, lo que reduce el tiempo y los
+                        errores asociados con los procesos manuales, mejorando así la productividad y eficiencia en la
+                        empresa.</p>
+                </div>
+                <div class="swiper-slide boximg">
+                    <img src="/assets/password3.svg" alt="">
+                    <h1>SEGURIDAD</h1>
+                    <p>Puedes asegurar la protección de la información crítica mediante avanzadas
+                        medidas de seguridad y facilitar el cumplimiento normativo, reduciendo el riesgo de sanciones y
+                        violaciones de datos.</p>
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="box">
+
+            <h1 class="text__sta-se">Recuperar contraseña</h1>
+            <p>¿Olvidaste tu contraseña? Enviaremos un correo. Ingresa tu email:</p>
+            <div class="container_email">
+                <input type="email" id="cambio" placeholder="Correo del usuario" class="email" autocomplete="off">
+                <i class="fa-solid fa-user fa-bounce"></i>
+            </div>
+            <button id="envi" class="btn__login">Enviar correo</button>
+
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="closeIcon"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1 class="h1__modal">¡Oooooops!</h1>
+                    <p class="text_error">Tu correo no está registrado en STRONGHOLD</p>
+                    <button id="okBtn">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal2">
+        <div class="modal-content2">
+            <span class="closeIcon2"><i class="fas fa-times"></i></span>
+            <div class="modal-body2">
+                <span class="icon2"><i class="fa-solid fa-circle-info"></i></span>
+                <div class="right-items2">
+                    <h1 class="h1__modal2">Lo sentimos</h1>
+                    <p class="text_error2">Antes de enviar el correo, debes ingresar el correo.</p>
+                    <button id="okBtn2">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fa-solid fa-circle-info"></i></span>
+                <div class="right-items3">
+                    <h1 class="h1__modal3">Revisa tu email</h1>
+                    <p class="text_error3">Hemos enviado un mensaje a tu correo electrónico. Por favor, revísalo para
+                        poder cambiar tu contraseña.</p>
+                    <button id="okBtn3">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="/controller/password/password.js"></script>
+</body>
+
+</html>
