@@ -20,7 +20,7 @@
         <p>Ingresa las credenciales de tu empleado: </p>
         <div class="container_name">
             <input type="text" id="name" placeholder="Nombre completo" class="email" autocomplete="off">
-            <i class="fa-solid fa-user fa-bounce"></i>
+            <i class="fa-solid fa-signature"></i>
         </div>
         <div class="container_email">
             <input type="email" id="email" placeholder="Correo del usuario" class="email" autocomplete="off">
@@ -35,10 +35,6 @@
             <i class="fa-solid fa-lock fa-shake"></i>
         </div>
         <div class="container-confir_pasw">
-            <div class="container_eye">
-                <i class="fa-solid fa-eye" id="eye"></i>
-                <span class="line_eye"></span>
-            </div>
             <input type="password" id="confir_contra" placeholder="Confirmar Contraseña" class="contra" autocomplete="off">
             <i class="fa-solid fa-lock fa-shake"></i>
         </div>
@@ -50,17 +46,56 @@
                 </div>
                 <ul class="options">
                     <div class="conoptions">
-                        <li class="option"><span class="option-text">Invitacion</span></li>
-                        <li class="option"><span class="option-text">Peticion</span></li>
-                        <li class="option"><span class="option-text">Queja</span></li>
-                        <li class="option"><span class="option-text">Solicitud</span></li>
-                        <li class="option"><span class="option-text">Reclamo</span></li>
+                        <li class="option"><span class="option-text">Gerente</span></li>
+                        <li class="option"><span class="option-text">Secretario</span></li>
+                        <li class="option"><span class="option-text">Usuario</span></li>
                     </div>
                 </ul>
             </div>
-            <i class="fa-solid fa-lock fa-shake"></i>
+            <i class="fa-solid fa-masks-theater"></i>
         </div>
-        <button id="register">Registrar</button>
+        <button id="register">Registrar usuario</button>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal2">
+        <div class="modal-content2">
+            <span class="closeIcon2"><i class="fas fa-times"></i></span>
+            <div class="modal-body2">
+                <span class="icon2"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items2">
+                    <h1>Ooops!</h1>
+                    <p class="textModal2"></p>
+                    <button id="okBtn2">Inténtalo otra vez</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items3">
+                    <h1>Hecho!</h1>
+                    <p class="textModal3"></p>
+                    <button id="okBtn3">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="/controller/admin/register_user/register_user.js"></script>
