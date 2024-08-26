@@ -26,9 +26,24 @@ onAuthStateChanged(auth, (user) => {
     // buttons inside
 
     var btn_register = document.querySelector('#register')
+    var btn_gestion = document.querySelector('#gestion')
+    var btn_central = document.querySelector('#central')
+    var btn_historico = document.querySelector('#historico')
 
     btn_register.addEventListener('click', () => {
       window.open("/views/admin/register_user/register_user.html", "_blank")
+    })
+
+    btn_gestion.addEventListener('click', () => {
+      location.href = "/views/admin/gestion/gestion.html"
+    })
+
+    btn_central.addEventListener('click', () => {
+      location.href = "/views/admin/central/central.html"
+    })
+
+    btn_historico.addEventListener('click', () => {
+      location.href = "/views/admin/historico/historico.html"
     })
 
     // btnaccount
@@ -433,7 +448,7 @@ onAuthStateChanged(auth, (user) => {
 
                                 const uid = user.uid;
 
-                                const storageRef = ref(storage, 'Documentos/' + user.uid + name_file.value);
+                                const storageRef = ref(storage, 'Documentos/' + user.uid + "/" + name_file.value);
                                 const uploadTask = uploadBytesResumable(storageRef, file.files[0]);
 
                                 uploadTask.on('state_changed',

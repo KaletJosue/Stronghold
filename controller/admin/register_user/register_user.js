@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getFirestore, collection, addDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDoc, getDocs, doc, where } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,6 +27,25 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
+
+    // Dark Mode
+
+    const body = document.body
+
+    getDocs(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid)).
+      then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.data().DarkMode == "desactive") {
+            body.classList.remove('dark-mode')
+          }
+          else if (doc.data().DarkMode == "active") {
+            body.classList.add('dark-mode')
+          }
+          else {
+            body.classList.add('dark-mode')
+          }
+        })
+      })
 
     // selects
 

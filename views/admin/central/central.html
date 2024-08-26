@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/inside/inside.css" />
+    <link rel="stylesheet" href="/styles/admin/central/central.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
-    <title>Administrador | Stronghold</title>
+    <title>Archivo Central | Stronghold</title>
     <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -35,7 +35,7 @@
             <div class="menu">
                 <p class="title"></p>
                 <ul>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/inside/inside.html">
                             <i class="ph-fill ph-house-simple"></i>
                             <span class="text">Incio</span>
@@ -59,14 +59,14 @@
                             <span class="text">Archivo de Gestion</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/central/central.html">
                             <i class="fa-solid fa-globe"></i>
                             <span class="text">Archivo Central</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/views/admin/historico/historico.html">
                             <i class="fa-solid fa-landmark"></i>
                             <span class="text">Archivo Historico</span>
                         </a>
@@ -135,9 +135,10 @@
 
     <div class="main">
         <div class="head">
-            <div class="lefthead">
-                <h1>Inicio</h1>
-            </div>
+            <label name = "search" class="lefthead">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="search" type="text" placeholder="Buscar documento" autocomplete="off">
+            </label>
             <div class="righthead">
                 <div class="texthead">
                     <p>Hola, <span class="namehead"></span></p>
@@ -147,116 +148,8 @@
             </div>
         </div>
 
-        <div class="contentmain">
-            <div class="target" id="up_document">
-                <img src="/assets/img_up_document.svg" alt="">
-                <h1>Subir Documento</h1>
-                <p>En este apartado podrás subir los documentos de tu empresa de manera sencilla y rápida, asegurando
-                    que toda la información importante esté almacenada de forma segura y accesible.</p>
-            </div>
-            <div class="target" id="register">
-                <img src="/assets/img_register.svg" alt="">
-                <h1>Registrar Usuarios</h1>
-                <p>Aquí encontrarás un espacio dedicado a la administración completa de tu equipo. Independientemente de
-                    si estás contratando nuevo personal o agregando tus empleados.</p>
-            </div>
-            <div class="target">
-                <img src="/assets/img_table.svg" alt="">
-                <h1>Tabla de Retencion</h1>
-                <p>En este apartado tienes el control total sobre tu documento. Podrás realizar modificaciones precisas,
-                    eliminarlo si ya no lo necesitas o simplemente mantenerlo organizado y accesible.</p>
-            </div>
-            <div class="target" id="gestion">
-                <img src="/assets/img_gestion.svg" alt="">
-                <h1>Archivo de Gestion</h1>
-                <p>En este apartado encontrarás los documentos que utilizas a diario en tu empresa. Es como tener tu
-                    escritorio de trabajo, pero de forma digital y organizada.</p>
-            </div>
-            <div class="target" id="central">
-                <img src="/assets/img_central.svg" alt="">
-                <h1>Archivo Central</h1>
-                <p>Este espacio es como una biblioteca de documentos que ya no usas a diario, pero que aún son
-                    importantes para la empresa. Imagina que son los libros de historia de tu empresa.</p>
-            </div>
-            <div class="target" id="historico">
-                <img src="/assets/img_historico.svg" alt="">
-                <h1>Archivo Historico</h1>
-                <p>Este es el lugar donde se guardan los tesoros documentales de tu empresa. Aquí encontrarás documentos
-                    con un gran valor histórico, como cartas antiguas de fundadores o fotografías.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal_document">
-        <div class="modal_document-content">
-            <span class="closeIcon2_document"><i class="fas fa-times"></i></span>
-            <div class="modal_document-body">
-                <div class="div-modal_document">
-                    <div class="con-label">
-                        <label class="custum-file-upload" for="file">
-                            <div class="icon">
-                                <img src="/assets/img_up_document_inside.svg" alt="">
-                            </div>
-                            <div class="text">
-                                <span>Click para subir el documento</span>
-                            </div>
-                            <input type="file" id="file" accept="application/pdf">
-                        </label>
-                    </div>
-                    <div class="inputs-modal">
-                        <input type="text" placeholder="Nombre del archivo" id="name_file" autocomplete="off">
-                        <input type="text" placeholder="Codigo del archivo" id="code_file" autocomplete="off">
-                        <div class="select-menu">
-                            <div class="select-btn">
-                                <span class="sBtn-text">Selecciona un asunto</span>
-                                <i class="ph ph-caret-down"></i>
-                            </div>
-                            <ul class="options">
-                                <div class="conoptions">
-                                    <li class="option"><span class="option-text">Invitacion</span></li>
-                                    <li class="option"><span class="option-text">Peticion</span></li>
-                                    <li class="option"><span class="option-text">Queja</span></li>
-                                    <li class="option"><span class="option-text">Solicitud</span></li>
-                                    <li class="option"><span class="option-text">Reclamo</span></li>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="select-menu2">
-                            <div class="select-btn2">
-                                <span class="sBtn-text2">Selecciona una disposición</span>
-                                <i class="ph ph-caret-down"></i>
-                            </div>
-                            <ul class="options2">
-                                <div class="conoptions2">
-                                    <li class="option2"><span class="option-text2">Archivo de Gestion</span></li>
-                                    <li class="option2"><span class="option-text2">Archivo Central</span></li>
-                                    <li class="option2"><span class="option-text2">Archivo Historico</span></li>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="select-menu3">
-                            <div class="select-btn3">
-                                <span class="sBtn-text3">Selecciona una visualizacion</span>
-                                <i class="ph ph-caret-down"></i>
-                            </div>
-                            <ul class="options3">
-                                <div class="conoptions3">
-                                    <li class="option3"><span class="option-text3">Gerente</span></li>
-                                    <li class="option3"><span class="option-text3">Secretario</span></li>
-                                    <li class="option3"><span class="option-text3">Usuario</span></li>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="div_bottom">
-                    <p>Archivo seleccionado: <span class="name_files"></span></p>
-                    <div class="btns-div-bottom">
-                        <button class="closeBtn-document">Cerrar</button>
-                        <button id="btnadd-document">Agregar</button>
-                    </div>
-                </div>
-            </div>
+        <div class="containermain">
+            
         </div>
     </div>
 
@@ -288,40 +181,7 @@
         </div>
     </div>
 
-    <div class="modal3">
-        <div class="modal-content3">
-            <span class="closeIcon3"><i class="fas fa-times"></i></span>
-            <div class="modal-body3">
-                <span class="icon3"><i class="fa-solid fa-circle-exclamation"></i></span>
-                <div class="right-items3">
-                    <h1>Ooops!</h1>
-                    <p class="textModal3"></p>
-                    <button id="okBtn3">Inténtalo otra vez</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal4">
-        <div class="modal-content4">
-            <span class="closeIcon4"><i class="fas fa-times"></i></span>
-            <div class="modal-body4">
-                <span class="icon4"><i class="fa-solid fa-circle-exclamation"></i></span>
-                <div class="right-items4">
-                    <h1>Hecho!</h1>
-                    <p class="textModal4"></p>
-                    <button id="okBtn4">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="loading">
-        <div class="loader"></div>
-        <p class="textLoader">asdasdasd</p>
-    </div>
-
-    <script src="/controller/admin/inside/inside.js" type="module"></script>
+    <script src="/controller/admin/central/central.js" type="module"></script>
 </body>
 
 </html>

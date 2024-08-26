@@ -221,7 +221,6 @@ onAuthStateChanged(auth, (user) => {
       })
     })
 
-
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
@@ -231,7 +230,7 @@ onAuthStateChanged(auth, (user) => {
             let archivoEncontrado = false;
 
             querySnapshot.forEach((doc) => {
-              if (doc.data().Direccion == "Archivo de Gestion") {
+              if (doc.data().Direccion == "Archivo Historico") {
                 archivoEncontrado = true;
 
                 var containermain = document.querySelector('.containermain');
@@ -276,11 +275,11 @@ onAuthStateChanged(auth, (user) => {
               let img = document.createElement('img')
               let h1 = document.createElement('h1')
               let main = document.querySelector('.main')
-  
+
               div.className = 'nada'
               img.src = "/assets/img_nada.svg"
               h1.textContent = "Sin archivos en esta carpeta"
-  
+
               main.appendChild(div)
               div.appendChild(img)
               div.appendChild(h1)
