@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/admin/gestion/gestion.css" />
+    <link rel="stylesheet" href="/styles/admin/table/table.css" />
     <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
-    <title>Archivo de Gestion | Stronghold</title>
+    <title>Tabla de Retencion | Stronghold</title>
     <!-- Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -47,13 +47,13 @@
                             <span class="text">Usuarios</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/views/admin/tabla/tabla.html">
                             <i class="ph-fill ph-table"></i>
                             <span class="text">Tabla de Retencion</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/views/admin/gestion/gestion.html">
                             <i class="ph-fill ph-hard-drives"></i>
                             <span class="text">Archivo de Gestion</span>
@@ -147,9 +147,31 @@
                 <img src="" alt="" class="imghead">
             </div>
         </div>
+        
+        <div class="condefault">
+            <table class="default">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Codigo</th>
+                        <th rowspan="2">Series y tipos <br>documentales</th>
+                        <th colspan="3">Retencion</th>
+                        <th colspan="4">Disposicion final</th>
+                        <th rowspan="2">Procedimiento</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">Archivo de gestion</th>
+                        <th style="width: 10%;">Archivo central</th>
+                        <th style="width: 10%;">Archivo historico</th>
+                        <th style="width: 4%;">CT</th>
+                        <th style="width: 4%;">E</th>
+                        <th style="width: 4%;">M</th>
+                        <th style="width: 4%;">S</th>
+                    </tr>
+                </thead>
+                <tbody class="container">
 
-        <div class="containermain">
-            
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -181,7 +203,35 @@
         </div>
     </div>
 
-    <script src="/controller/admin/gestion/gestion.js" type="module"></script>
+    <div class="modal3">
+        <div class="modal-content3">
+            <span class="closeIcon3"><i class="fas fa-times"></i></span>
+            <div class="modal-body3">
+                <span class="icon3"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items3">
+                    <h1>Actualizar</h1>
+                    <input type="text" placeholder="Codigo del documento" id="code" autocomplete="off">
+                    <button id="okBtn3">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal4">
+        <div class="modal-content4">
+            <span class="closeIcon4"><i class="fas fa-times"></i></span>
+            <div class="modal-body4">
+                <span class="icon4"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items4">
+                    <h1>Ooops!</h1>
+                    <p class="textModal4"></p>
+                    <button id="okBtn4">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/controller/admin/table_rete/table.js" type="module"></script>
 </body>
 
 </html>

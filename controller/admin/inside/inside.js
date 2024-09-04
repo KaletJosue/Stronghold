@@ -29,6 +29,7 @@ onAuthStateChanged(auth, (user) => {
     var btn_gestion = document.querySelector('#gestion')
     var btn_central = document.querySelector('#central')
     var btn_historico = document.querySelector('#historico')
+    var btn_table = document.querySelector('#table_rete')
 
     btn_register.addEventListener('click', () => {
       window.open("/views/admin/register_user/register_user.html", "_blank")
@@ -44,6 +45,10 @@ onAuthStateChanged(auth, (user) => {
 
     btn_historico.addEventListener('click', () => {
       location.href = "/views/admin/historico/historico.html"
+    })
+
+    btn_table.addEventListener('click', () => {
+      location.href = "/views/admin/tabla/tabla.html"
     })
 
     // btnaccount
