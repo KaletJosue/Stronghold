@@ -317,7 +317,7 @@ onAuthStateChanged(auth, (user) => {
                             .then((querySnapshot) => {
                               querySnapshot.forEach((doc2) => {
                                 if (code.value == doc2.data().Codigo) {
-                                  
+
                                   modal3.classList.remove('active')
 
                                 }
@@ -344,12 +344,56 @@ onAuthStateChanged(auth, (user) => {
                           .then((querySnapshot) => {
                             querySnapshot.forEach((doc) => {
                               if (code.value == doc.data().Codigo) {
-                                alert(doc.data().Nombre)
-                                alert(doc.data().Codigo)
-                                alert(doc.data().Direccion)
-                                alert(doc.data().Disposicion)
-                                alert(doc.data().Procedimiento)
                                 code.value = ''
+
+                                var modalUpdate = document.querySelector('.modalupdate')
+                                var closeBtnUpdate = document.querySelector('.closeupdate')
+
+                                var codeUpdate = document.getElementById('codeUpdate')
+                                var nameUpdate = document.getElementById('nameUpdate')
+                                var procdUpdate = document.getElementById('procUpdate')
+
+                                codeUpdate.value = doc.data().Codigo
+                                nameUpdate.value = doc.data().Nombre
+                                procdUpdate.value = doc.data().Procedimiento
+                                sBtn_text2.textContent = doc.data().Direccion
+
+                                if (doc.data().Disposicion == '') {
+                                  sBtn_text.textContent = 'Selecciona una disposición'
+                                } else if (doc.data().Disposicion == "CT") {
+                                  sBtn_text.textContent = 'Conservacion Total'
+                                } else if (doc.data().Disposicion == "M") {
+                                  sBtn_text.textContent = 'Microsegmentacion'
+                                } else if (doc.data().Disposicion == "E") {
+                                  sBtn_text.textContent = 'Eliminacion'
+                                } else if (doc.data().Disposicion == "S") {
+                                  sBtn_text.textContent = 'Seleccion'
+                                }
+
+                                modalUpdate.classList.add('active')
+                                modalUpdate.classList.remove('out')
+                                closeBtnUpdate.addEventListener('click', () => {
+                                  modalUpdate.classList.add('out')
+                                  modalUpdate.classList.remove('active')
+                                  codeUpdate.value = ''
+                                  nameUpdate.value = ''
+                                  procdUpdate.value = ''
+
+                                  sBtn_text.textContent = 'Selecciona una retencion'
+                                  sBtn_text2.textContent = 'Selecciona una disposición'
+                                })
+                                window.addEventListener('click', event => {
+                                  if (event.target == modalUpdate) {
+                                    modalUpdate.classList.add('out')
+                                    modalUpdate.classList.remove('active')
+                                    codeUpdate.value = ''
+                                    nameUpdate.value = ''
+                                    procdUpdate.value = ''
+
+                                    sBtn_text.textContent = 'Selecciona una retencion'
+                                    sBtn_text2.textContent = 'Selecciona una disposición'
+                                  }
+                                })
                               }
                             })
                           })
@@ -379,6 +423,202 @@ onAuthStateChanged(auth, (user) => {
               })
             });
           })
+
+        // Update
+
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const uid = user.uid;
+
+            var btnUpdate = document.querySelector('.btnUpdate')
+
+            const closeBtn4 = document.querySelector('.closeIcon4')
+            const tryAgain4 = document.getElementById('okBtn4')
+            const modal4 = document.querySelector('.modal4')
+            const textModal4 = document.querySelector('.textModal4')
+
+            btnUpdate.addEventListener('click', () => {
+              var codeUpdate = document.querySelector('#codeUpdate').value
+              var nameUpdate = document.querySelector('#nameUpdate').value
+              var procUpdate = document.querySelector('#procUpdate').value
+              var dispUpdate = ''
+              var reteUpdate = sBtn_text2.textContent
+
+              if (sBtn_text.textContent == "Conservacion Total") {
+                dispUpdate = 'CT'
+              } else if (sBtn_text.textContent == "Microsegmentacion") {
+                dispUpdate = 'M'
+              } else if (sBtn_text.textContent == "Eliminacion") {
+                dispUpdate = 'E'
+              } else if (sBtn_text.textContent == "Seleccion") {
+                dispUpdate = 'S'
+              } else if (sBtn_text.textContent == "Selecciona una disposición") {
+                dispUpdate = 'Selecciona una disposición'
+              }
+
+              if (procUpdate.length != 0) {
+                if (reteUpdate != "Selecciona una retencion") {
+                  if (dispUpdate != "Selecciona una disposición") {
+
+                    const closeBtn5 = document.querySelector('.closeIcon5')
+                    const tryAgain5 = document.getElementById('okBtn5')
+                    const modal5 = document.querySelector('.modal5')
+                    const textModal5 = document.querySelector('.textModal5')
+
+                    getDocs(collection(db, "Entity", "idEntity", "Data_Documents"))
+                      .then((querySnapshot) => {
+                        querySnapshot.forEach((doc2) => {
+                          if (doc2.data().Codigo == codeUpdate) {
+                            updateDoc(doc(db, "Entity", "idEntity", "Data_Documents", doc2.id), {
+                              Procedimiento: procUpdate,
+                              Disposicion: dispUpdate,
+                              Direccion: reteUpdate
+                            })
+                            .then(() => {
+                              textModal5.textContent = `El documento con nombre ${nameUpdate} se actualizo`
+                              modal5.classList.add('active')
+                              closeBtn5.addEventListener('click', () => {
+                                modal5.classList.remove('active')
+                                setTimeout(function () {
+                                  location.reload();
+                                }, 1)
+                              })
+                              tryAgain5.addEventListener('click', () => {
+                                modal5.classList.remove('active')
+                                setTimeout(function () {
+                                  location.reload();
+                                }, 1)
+                              })
+                              window.addEventListener('click', event => {
+                                if (event.target == modal5) {
+                                  modal5.classList.remove('active')
+                                  setTimeout(function () {
+                                    location.reload();
+                                  }, 1)
+                                }
+                              })
+                            })
+                          }
+                        });
+                      })
+
+                  } else {
+                    textModal4.textContent = `Debes colocar la disposición del archivo`
+                    modal4.classList.add('active')
+                    closeBtn4.addEventListener('click', () => {
+                      modal4.classList.remove('active')
+                    })
+                    tryAgain4.addEventListener('click', () => {
+                      modal4.classList.remove('active')
+                    })
+                    window.addEventListener('click', event => {
+                      if (event.target == modal4) {
+                        modal4.classList.remove('active')
+                      }
+                    })
+                  }
+                } else {
+                  textModal4.textContent = `Debes colocar la retencion del archivo`
+                  modal4.classList.add('active')
+                  closeBtn4.addEventListener('click', () => {
+                    modal4.classList.remove('active')
+                  })
+                  tryAgain4.addEventListener('click', () => {
+                    modal4.classList.remove('active')
+                  })
+                  window.addEventListener('click', event => {
+                    if (event.target == modal4) {
+                      modal4.classList.remove('active')
+                    }
+                  })
+                }
+              } else {
+                textModal4.textContent = `Debes colocar el proceso del archivo`
+                modal4.classList.add('active')
+                closeBtn4.addEventListener('click', () => {
+                  modal4.classList.remove('active')
+                })
+                tryAgain4.addEventListener('click', () => {
+                  modal4.classList.remove('active')
+                })
+                window.addEventListener('click', event => {
+                  if (event.target == modal4) {
+                    modal4.classList.remove('active')
+                  }
+                })
+              }
+            })
+
+          } else {
+            const tryAgain = document.getElementById('okBtn')
+            const modal = document.querySelector('.modal')
+
+            const main = document.querySelector('.main')
+
+            main.style.display = "none"
+
+            modal.classList.add('active')
+            tryAgain.addEventListener('click', () => {
+              location.href = "/views/login/login.html"
+            })
+          }
+        });
+
+        // selects
+
+        var optionMenu = document.querySelector(".select-menu")
+        var selectBtn = optionMenu.querySelector(".select-btn")
+        var options = optionMenu.querySelectorAll(".option")
+        var sBtn_text = optionMenu.querySelector(".sBtn-text")
+        var opt = optionMenu.querySelector('.options')
+
+        var optionMenu2 = document.querySelector(".select-menu2")
+        var selectBtn2 = optionMenu2.querySelector(".select-btn2")
+        var options2 = optionMenu2.querySelectorAll(".option2")
+        var sBtn_text2 = optionMenu2.querySelector(".sBtn-text2")
+        var opt2 = optionMenu2.querySelector('.options2')
+
+        optionMenu.classList.add('active')
+        optionMenu2.classList.add('active')
+
+        selectBtn.addEventListener('click', () => {
+          optionMenu.classList.toggle('active')
+          optionMenu2.classList.add('active')
+
+          window.addEventListener('click', event => {
+            if (event.target == opt) {
+              optionMenu.classList.add('active')
+            }
+          })
+        })
+        selectBtn2.addEventListener('click', () => {
+          optionMenu.classList.add('active')
+          optionMenu2.classList.toggle('active')
+
+          window.addEventListener('click', event => {
+            if (event.target == opt2) {
+              optionMenu2.classList.add('active')
+            }
+          })
+        })
+
+        options.forEach(option => {
+          option.addEventListener('click', () => {
+            var selectedOption = option.querySelector('.option-text').innerText
+            sBtn_text.textContent = selectedOption
+
+            optionMenu.classList.toggle('active')
+          })
+        })
+
+        options2.forEach(option2 => {
+          option2.addEventListener('click', () => {
+            var selectedOption2 = option2.querySelector('.option-text2').innerText
+            sBtn_text2.textContent = selectedOption2
+
+            optionMenu2.classList.toggle('active')
+          })
+        })
 
         // Search
         var search = document.getElementById('search')

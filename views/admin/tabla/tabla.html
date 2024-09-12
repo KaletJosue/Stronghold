@@ -231,6 +231,67 @@
         </div>
     </div>
 
+    <div class="modal5">
+        <div class="modal-content5">
+            <span class="closeIcon5"><i class="fas fa-times"></i></span>
+            <div class="modal-body5">
+                <span class="icon5"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div class="right-items5">
+                    <h1>Hecho!</h1>
+                    <p class="textModal5"></p>
+                    <button id="okBtn5">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalupdate">
+        <div class="contentupdate">
+            <p class="closeupdate">x</p>
+            <div class="body-modal-update">
+                <label for="">Codigo del documento</label>
+                <input type="text" id="codeUpdate" disabled>
+                <label for="">Nombre del documento</label>
+                <input type="text" id="nameUpdate">
+                <label for="">Retencion del documento</label>
+                <div class="select-menu2">
+                    <div class="select-btn2">
+                        <span class="sBtn-text2">Selecciona una retencion</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <ul class="options2">
+                        <div class="conoptions2">
+                            <li class="option2"><span class="option-text2">Archivo de Gestion</span></li>
+                            <li class="option2"><span class="option-text2">Archivo Central</span></li>
+                            <li class="option2"><span class="option-text2">Archivo Historico</span></li>
+                        </div>
+                    </ul>
+                </div>
+                <label for="">Disposicion del documento</label>
+                <div class="select-menu">
+                    <div class="select-btn">
+                        <span class="sBtn-text">Selecciona una disposicion</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <ul class="options">
+                        <div class="conoptions">
+                            <li class="option"><span class="option-text">Conservacion Total</span></li>
+                            <li class="option"><span class="option-text">Microsegmentacion</span></li>
+                            <li class="option"><span class="option-text">Eliminacion</span></li>
+                            <li class="option"><span class="option-text">Seleccion</span></li>
+                        </div>
+                    </ul>
+                </div>
+                <label for="">Procedimiento del documento</label>
+                <textarea id="procUpdate" name="comentarios" rows="10" cols="30" placeholder="Escribe aquí tus comentarios..."></textarea>
+            </div>
+            <div class="btnUpdate">
+                <i class="fa-solid fa-cloud"></i>
+                <p>Actualizar</p>
+            </div>
+        </div>
+    </div>
+
     <script src="/controller/admin/table_rete/table.js" type="module"></script>
 </body>
 

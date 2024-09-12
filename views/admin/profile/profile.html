@@ -1,148 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="/Views/profile/profile.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/admin/profile/profile.css" />
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <title>Perfil | Stronghold</title>
+    <!-- Iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://kit.fontawesome.com/460146b1b8.js" crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
-    </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-    </style>
-    </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
-    </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
-    </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-    </style>
-        <link rel="shortcut icon" href="/Assets/Logo.svg" type="image/x-icon">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 </head>
+
 <body>
 
-    <button class="button" id="delete2">
-        <svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg>
-      </button>
-
-    <section class="profile">
-        <br>
-        <p class="text-profile__gmail">Correo:</p>
-        <input disabled type="text" id="obt__email">
-        <br>
-        <p class="text-profile__number">Rol:</p>
-        <input disabled type="text" id="obt__phone">
-        <p class="text-profile__password">Contraseña: ***********</p>
-
-
-        <div class="buttons__profile">
-
-
-            <a href="/Views/pro__pass/index.html">
-                <button class="button2" id="button__password">Cambiar</button>
-            </a>
+    <div class="main">
+        <div class="head-main">
+            <img src="" alt="" class="img__profile">
+            <div class="text__head-main">
+                <h1 class="name"></h1>
+                <h3 class="email"></h3>
+                <p class="rol"></p>
+            </div>
         </div>
-    </section>
-
-
-
-    <section class="contact-us__networks">
-
-        <p class="title1_contact-us">Contactanos:</p>
-        <p class="text1_contact-us">302 5131085</p>
-        <p class="text2_contact-us">318 7482232</p>
-        <p class="text3_contact-us">313 8577980</p>
-
-        <p class="title__correo">Correos:</p>
-        <p class="text1__correo">jacob11pb@gmail.com</p>
-        <p class="text2__correo">kalet.josue28@gmail.com</p>
-        <p class="text3__correo">strongholdsas@gmail.com</p>
-
-        <p class="line"></p>
-
-        <img src="/Assets/face.png" alt="logo face" class="face">
-        <p class="text__face">strongholdsas</p>
-
-        <img src="/Assets/Insta.png" alt="logo insta" class="insta">
-        <p class="text__insta">strongholdsas</p>
-
-        <img src="/Assets/What.png" alt="logo whatsapp" class="what">
-        <p class="text__what">346542662465</p>
-
-        <img src="/Assets/twi.png" alt="twitter" class="twi">
-        <p class="text__twi">strongholdsas</p>
-
-</section>
-
-
-<div class="modal5">
-    <div class="modal-content5">
-        <div class="modal-body5">
-        <span class="icon5"><i class="fas fa-exclamation-triangle"></i></span>
-        <div class="right-items5">
-            <h1 class="h1__modal5">Ooooooooooooooooops !!!</h1>
-            <p class="text_error5">No has iniciado sesion, te redirigiremos al login para que puedas ingresar de manera correcta</p>
-            <form action="/Views/login/index.html"><button id="okBtn5">Iniciar sesion</button></form>
-        </div>
+        <div class="content-main">
+            <div class="con__main">
+                <div class="right-con__main">
+                    <i class="fa-regular fa-address-card"></i>
+                    <div class="text-right-con__main">
+                        <h3>Informacion Personal</h3>
+                        <p>Detalles completos sobre tu documento y otros aspectos relacionados</p>
+                    </div>
+                </div>
+                <div class="left-con__main">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="con__main">
+                <div class="right-con__main">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="text-right-con__main">
+                        <h3>Datos de tu Cuenta</h3>
+                        <p>Información detallada que representa los datos asociados a tu cuenta en Stronghold, incluyendo configuraciones y preferencias relevantes.</p>
+                    </div>
+                </div>
+                <div class="left-con__main">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="con__main">
+                <div class="right-con__main">
+                    <i class="fa-solid fa-lock"></i>
+                    <div class="text-right-con__main">
+                        <h3>Seguridad</h3>
+                        <p>Establece y ajusta las configuraciones de seguridad para proteger tu cuenta de manera efectiva</p>
+                    </div>
+                </div>
+                <div class="left-con__main">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-
-<div class="modal6">
-    <div class="modal-content6">
-        <span class="closeIcon6"><i class="fas fa-times"></i></span>
-        <div class="modal-body6">
-        <span class="icon6"><i class="fa-solid fa-circle-info"></i></span>
-        <div class="right-items6">
-            <h1 class="text_error6">Cuidado !!!</h1>
-            <p class="text_error2">Estas a punto de eliminar tu cuenta de Stronghold, quieres hacerlo</p>
-            <button id="okBtn6">No, no quiero</button>
-            <button id="okBtn7">Si, si quiero</button>
-        </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="right-items">
+                    <h1>¡Lo sentimos!</h1>
+                    <p>No has iniciado sesión de manera correcta</p>
+                    <button id="okBtn">Iniciar Sesión</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="modal2">
-    <div class="modal-content2">
-        <span class="closeIcon2"><i class="fas fa-times"></i></span>
-        <div class="modal-body2">
-        <span class="icon2"><i class="fa-solid fa-circle-info"></i></span>
-        <div class="right-items2">
-            <h1 class="h1__modal2">Lo sentimos</h1>
-            <p class="text_error2">Tu correo electronico no se puede cambiar</p>
-            <button id="okBtn2">Cerrar</button>
-        </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal3">
-    <div class="modal-content3">
-        <span class="closeIcon3"><i class="fas fa-times"></i></span>
-        <div class="modal-body3">
-        <span class="icon3"><i class="fa-solid fa-circle-info"></i></span>
-        <div class="right-items3">
-            <h1 class="h1__modal3">Lo sentimos</h1>
-            <p class="text_error3">No pudimos cambiar tu contraseña, inicia sesion nuevamente e intenta otra vez</p>
-            <button id="okBtn3">Cerrar</button>
-        </div>
-        </div>
-    </div>
-</div>
-
-
-<script src="/controller/profile/profile.js" type="module"></script>
-
+    <script src="/controller/admin/profile/profile.js" type="module"></script>
 </body>
+
 </html>

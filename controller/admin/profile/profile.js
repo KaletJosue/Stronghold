@@ -1,13 +1,9 @@
-// Import the functions you need from the SDKs you need
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, getDoc, query, where } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
-import { getAuth, onAuthStateChanged, deleteUser } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, where, getDoc, query, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-storage.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyChywa2n_aLvEAVnL0eELGtK4NlJc3yOr8",
   authDomain: "strongholdcol.firebaseapp.com",
@@ -18,127 +14,112 @@ const firebaseConfig = {
   measurementId: "G-ZTJHMT75VJ"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
 const db = getFirestore(app);
-const user = auth.currentUser;
-
-const modal5 = document.querySelector('.modal5')
-
-const modalBtn6 = document.getElementById('login')
-const closeBtn6 = document.querySelector('.closeIcon6')
-const tryAgain6 = document.getElementById('okBtn6')
-const modal6 = document.querySelector('.modal6')
-
-const modalBtn3 = document.getElementById('login')
-const closeBtn3 = document.querySelector('.closeIcon3')
-const tryAgain3 = document.getElementById('okBtn3')
-const modal3 = document.querySelector('.modal3')
+const storage = getStorage();
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
 
-    getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
-      then(querySnapshot => {
-        querySnapshot.forEach((doc) => {
+    // Profile
 
-          //doc.data() is never undefined for query doc snapshots
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
 
-          var email = document.getElementById ("obt__email") 
-          var phone = document.getElementById ("obt__phone")
+        var img = document.querySelector('.img__profile')
+        var name = document.querySelector('.name')
+        var email = document.querySelector('.email')
+        var rol = document.querySelector('.rol')
 
-          email.value = doc.data().Correo
-          phone.value = doc.data().Rol
+        getDocs(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))
+        .then ((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            if (doc.data().URL == "") {
+              img.src = "/assets/profile_vacio.png"
+            } else {
+              img.src = doc.data().URL
+            }
 
+            var cadena = doc.data().Nombre
+            var palabras = cadena.split(" ")
+
+            var dosPrimerasPalabras = palabras.slice(0, 2).join(' ')
+
+            name.textContent = dosPrimerasPalabras
+            email.textContent = doc.data().Correo
+            rol.textContent = doc.data().Rol
+          })
         })
-      })
 
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
+      } else {
+        const tryAgain = document.getElementById('okBtn')
+        const modal = document.querySelector('.modal')
 
-    delete2.addEventListener('click', (e)=>{
-      modal6.classList.add('active')
-      closeBtn6.addEventListener('click', () => {
-        modal6.classList.remove('active')
-      })
-      tryAgain6.addEventListener('click', () => {
-        modal6.classList.remove('active')
-      })
-      window.addEventListener('click', event => {
-        if(event.target == modal6){
-          modal6.classList.remove('active')
-        }
-      }) 
+        const main = document.querySelector('.main')
+
+        main.style.display = "none"
+
+        modal.classList.add('active')
+        tryAgain.addEventListener('click', () => {
+          location.href = "/views/login/login.html"
+        })
+      }
+    });
+
+    // Dark Mode
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+
+        const body = document.body
+
+        getDocs(query(collection(db, "Users", user.uid, "Private_Data"), where("Id", "==", user.uid))).
+          then((querySnapshot) => {
+            querySnapshot.forEach((doc2) => {
+              getDoc(doc(db, "Users", user.uid, "Private_Data", doc2.data().DarkMode)).
+                then(() => {
+                  if (doc2.data().DarkMode == "desactive") {
+                    body.classList.remove('dark-mode')
+                  }
+                  else if (doc2.data().DarkMode == "active") {
+                    body.classList.add('dark-mode')
+                  }
+                  else {
+                    body.classList.add('dark-mode')
+                  }
+                })
+            })
+          })
+
+      } else {
+        const tryAgain = document.getElementById('okBtn')
+        const modal = document.querySelector('.modal')
+
+        const main = document.querySelector('.main')
+
+        main.style.display = "none"
+
+        modal.classList.add('active')
+        tryAgain.addEventListener('click', () => {
+          location.href = "/views/login/login.html"
+        })
+      }
+    });
+
+  } else {
+    const tryAgain = document.getElementById('okBtn')
+    const modal = document.querySelector('.modal')
+
+    const main = document.querySelector('.main')
+
+    main.style.display = "none"
+
+    modal.classList.add('active')
+    tryAgain.addEventListener('click', () => {
+      location.href = "/views/login/login.html"
     })
-
-
-
-    okBtn7.addEventListener('click', (e)=>{
-      deleteUser(user).then(() => {
-        // User deleted.
-
-        location.href = "/Views/login/index.html"
-
-      }).catch((error) => {
-        // An error ocurred
-
-        modal3.classList.add('active')
-        closeBtn3.addEventListener('click', () => {
-          modal3.classList.remove('active')
-        })
-        tryAgain3.addEventListener('click', () => {
-          modal3.classList.remove('active')
-        })
-        window.addEventListener('click', event => {
-          if(event.target == modal3){
-            modal3.classList.remove('active')
-          }
-        }) 
-
-        // ...
-      });
-    })
-
-  } 
-  
-  else {
-    // User is signed out
-    // ...
-    modal5.classList.add('active')
   }
-})
-
-const modalBtn2 = document.getElementById('login')
-const closeBtn2 = document.querySelector('.closeIcon2')
-const tryAgain2 = document.getElementById('okBtn2')
-const modal2 = document.querySelector('.modal2')
-
-
-button__email.addEventListener('click', (e) =>{
-  modal2.classList.add('active')
-  closeBtn2.addEventListener('click', () => {
-    modal2.classList.remove('active')
-  })
-  tryAgain2.addEventListener('click', () => {
-    modal2.classList.remove('active')
-  })
-  window.addEventListener('click', event => {
-    if(event.target == modal2){
-      modal2.classList.remove('active')
-    }
-  }) 
-
-  Toastify({
-
-    text: "Lo sentimos, tu correo no se popuede cambiar",
-    
-    duration: 3000
-    
-    }).showToast();
-})
-
-
+});

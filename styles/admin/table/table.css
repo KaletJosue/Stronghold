@@ -607,6 +607,7 @@ button#cancelBtn2:hover {
     height: 25em;
     z-index: 0;
     transition: background-color .3s ease;
+    z-index: -1;
 }
 
 .closeIcon3 {
@@ -772,6 +773,303 @@ button#okBtn4 {
 
 button#okBtn4:hover {
     background-color: #f65656;
+}
+
+/* modal 5 */
+
+.modal5 {
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000086;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    padding: 1rem 2rem;
+    z-index: 100;
+}
+
+.modal5.active {
+    display: flex;
+}
+
+.modal-content5 {
+    background: #17181c;
+    color: #f1f2f4;
+    width: 500px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.75rem 1rem #0b0c0e4d;
+    border-radius: 1em;
+    z-index: 1;
+}
+
+.modal-content5::before {
+    background-color: #22ff005c;
+    border-radius: 50%;
+    content: '';
+    filter: blur(60px);
+    opacity: .15;
+    position: absolute;
+    right: -15em;
+    width: 25em;
+    height: 25em;
+    z-index: 0;
+    transition: background-color .3s ease;
+}
+
+.closeIcon5 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #abafba;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closeIcon5:hover {
+    color: #c7cad1;
+}
+
+.modal-body5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    gap: 2rem;
+}
+
+span.icon5 {
+    font-size: 50px;
+    color: #7ef656;
+}
+
+.right-items5 h1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.right-items5 p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+button#okBtn5 {
+    padding: 8px 2rem;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #7ef656;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+    transition: all .2s ease;
+}
+
+button#okBtn5:hover {
+    background-color: #7ef656;
+}
+
+.modalupdate {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #00000086;
+    display: none;
+}
+
+.modalupdate.active {
+    display: flex;
+    animation: backgroundIn 1s forwards;
+}
+
+.modalupdate.out {
+    display: flex;
+    animation: backgroundOut 1s forwards;
+}
+
+.modalupdate .contentupdate {
+    position: fixed;
+    right: -100vw;
+    top: 0;
+    height: 100vh;
+    width: 500px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 1.5rem;
+    animation: barraOut 1s forwards;
+    overflow-y: auto;
+}
+
+.modalupdate.active .contentupdate {
+    animation: barraIn 1s forwards;
+}
+
+.modalupdate .contentupdate p:first-child {
+    font-size: 20px;
+    width: 100%;
+    text-align: end;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.modalupdate .contentupdate .btnUpdate {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-fondo);
+    color: var(--color-gray);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.modalupdate .contentupdate .btnUpdate:hover p {
+    opacity: 0;
+}
+
+.modalupdate .contentupdate .btnUpdate i {
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.modalupdate .contentupdate .btnUpdate:hover i {
+    margin-left: 80px;
+    transform: scale(1.5);
+    color: var(--color-black);
+}
+
+.modalupdate .contentupdate .btnUpdate p {
+    font-size: 14px;
+    font-weight: 800;
+    transition: all .3s ease;
+}
+
+.modalupdate .contentupdate .body-modal-update {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.modalupdate .contentupdate .body-modal-update label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.modalupdate .contentupdate .body-modal-update #codeUpdate,
+.modalupdate .contentupdate .body-modal-update #nameUpdate {
+    cursor:no-drop;
+}
+
+.modalupdate .contentupdate .body-modal-update input,
+.modalupdate .contentupdate .body-modal-update textarea {
+    padding: .7rem 1rem;
+    outline: none;
+    background-color: transparent;
+    border: solid 2px var(--color-fondo);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--color-black);
+    resize: none;
+}
+
+.modalupdate .contentupdate .body-modal-update textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modalupdate .contentupdate .body-modal-update textarea::-webkit-scrollbar-thumb {
+    background-color: var(--color-fondo);
+    border-radius: 10px;
+}
+
+.select-menu,
+.select-menu2 {
+    width: 100%;
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+.select-menu .select-btn,
+.select-menu2 .select-btn2 {
+    display: flex;
+    padding: .7rem 1rem;
+    background-color: transparent;
+    font-size: 13px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 1rem;
+    border: solid 2px var(--color-fondo);
+    color: var(--color-black);
+}
+
+.select-menu .select-btn i,
+.select-menu2 .select-btn2 i {
+    font-size: 13px;
+    transition: all .2s ease;
+}
+
+.select-menu .options,
+.select-menu2 .options2 {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    margin-top: .5rem;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    z-index: 1;
+    color: var(--color-black);
+    border: solid 2px var(--color-fondo);
+}
+
+.select-menu.active .options,
+.select-menu2.active .options2 {
+    display: none;
+}
+
+.select-menu.active .select-btn i,
+.select-menu2.active .select-btn2 i {
+    transform: rotate(-180deg);
+}
+
+.select-menu .options .option,
+.select-menu2 .options2 .option2 {
+    padding: .7rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all .2s ease;
+}
+
+.select-menu .options .option:hover,
+.select-menu2 .options2 .option2:hover {
+    background-color: var(--color-blue);
+    color: white;
 }
 
 .theme-switch {
@@ -980,23 +1278,99 @@ button#okBtn4:hover {
     transform: translateY(-50%);
 }
 
-@keyframes barra {
+@keyframes backgroundIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes barraIn {
     0% {
         right: -100vw;
-    } 
+    }
+
     100% {
-        background-color: #00000086;
         right: 0;
     }
 }
 
-@keyframes barraleft {
+@keyframes barraOut {
     0% {
-        background-color: #00000086;
         right: 0;
-    } 
+    }
+
     100% {
         right: -100vw;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    .select-menu .options,
+    .select-menu2 .options2,
+    .select-menu3 .options3 {
+        position: fixed;
+        top: -20px;
+        left: 0;
+        height: 105vh;
+        width: 100vw;
+        background-color: #3c3c3ca1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        border: none;
+        border-radius: 0;
+    }
+
+    .select-menu .options .conoptions,
+    .select-menu2 .options2 .conoptions2,
+    .select-menu3 .options3 .conoptions3 {
+        background-color: var(--color-white);
+        border-radius: 10px;
+        width: 50vw;
+        padding: 1rem 2rem;
+    }
+
+    .select-menu .options .conoptions li,
+    .select-menu2 .options2 .conoptions2 li,
+    .select-menu3 .options3 .conoptions3 li {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .select-menu .options .conoptions li:hover,
+    .select-menu2 .options2 .conoptions2 li:hover,
+    .select-menu3 .options3 .conoptions3 li:hover {
+        background-color: var(--color-blue);
+    }
+}
+
+@media (width < 800px) {
+    .select-menu .options .conoptions,
+    .select-menu2 .options2 .conoptions2,
+    .select-menu3 .options3 .conoptions3 {
+        background-color: var(--color-white);
+        border-radius: 10px;
+        width: 80vw;
+        padding: 1rem 2rem;
     }
 }
 
@@ -1161,6 +1535,10 @@ button#okBtn4:hover {
     }
 
     .right .content-right {
+        width: 100vw;
+    }
+
+    .modalupdate .contentupdate {
         width: 100vw;
     }
 }
